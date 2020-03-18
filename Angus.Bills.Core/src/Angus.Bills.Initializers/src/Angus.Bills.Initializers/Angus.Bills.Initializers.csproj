@@ -1,0 +1,18 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Angus.Bills.Core</Description>
+    <Authors>DevDing.io</Authors>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <LangVersion>Latest</LangVersion>
+    <AssemblyName>Angus.Bills.Core</AssemblyName>
+    <Title>Angus.Bills.Core</Title>
+    <PackageId>Angus.Bills.Core</PackageId>
+    <PackageTags>Angus.Bills.Core</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+</Project>
