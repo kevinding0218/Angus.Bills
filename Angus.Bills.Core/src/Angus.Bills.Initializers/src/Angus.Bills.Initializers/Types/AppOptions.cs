@@ -1,7 +1,7 @@
-using System;
-
-namespace Angus.Bills.Initializers {
-    public class AppOptions {
+namespace Angus.Bills.Initializers
+{
+    public class AppOptions
+    {
         public string Name { get; set; }
         public string Service { get; set; }
         public string Instance { get; set; }

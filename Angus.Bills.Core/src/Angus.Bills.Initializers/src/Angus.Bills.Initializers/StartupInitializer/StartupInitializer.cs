@@ -1,23 +1,22 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace Angus.Bills.Initializers {
-    public class StartupInitializer : IStartupInitializer {
-        private readonly IList<IInitializer> _initializers = new List<IInitializer> ();
+namespace Angus.Bills.Initializers
+{
+    public class StartupInitializer : IStartupInitializer
+    {
+        private readonly IList<IInitializer> _initializers = new List<IInitializer>();
 
-        public void AddInitializer (IInitializer initializer) {
-            if (initializer is null || _initializers.Contains (initializer)) {
-                return;
-            }
+        public void AddInitializer(IInitializer initializer)
+        {
+            if (initializer is null || _initializers.Contains(initializer)) return;
 
-            _initializers.Add (initializer);
-
+            _initializers.Add(initializer);
         }
 
-        public async Task InitializeAsync () {
-            foreach (var initializer in _initializers) {
-                await initializer.InitializeAsync ();
-            }
+        public async Task InitializeAsync()
+        {
+            foreach (var initializer in _initializers) await initializer.InitializeAsync();
         }
     }
 }

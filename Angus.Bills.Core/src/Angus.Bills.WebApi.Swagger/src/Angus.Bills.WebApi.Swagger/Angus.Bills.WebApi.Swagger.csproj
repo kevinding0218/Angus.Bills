@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Angus.Bills.WebApi.Swagger</Description>
+    <Authors>DevDing.io</Authors>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <LangVersion>Latest</LangVersion>
+    <AssemblyName>Angus.Bills.WebApi.Swagger</AssemblyName>
+    <Title>Angus.Bills.WebApi.Swagger</Title>
+    <PackageId>Angus.Bills.WebApi.Swagger</PackageId>
+    <PackageTags>Angus.Bills.WebApi.Swagger</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Angus.Bills.Docs.Swagger\src\Angus.Bills.Docs.Swagger\Angus.Bills.Docs.Swagger.csproj" />
+    <ProjectReference Include="..\..\..\Angus.Bills.WebApi\src\Angus.Bills.WebApi\Angus.Bills.WebApi.csproj" />
+  </ItemGroup>
+
+</Project>
