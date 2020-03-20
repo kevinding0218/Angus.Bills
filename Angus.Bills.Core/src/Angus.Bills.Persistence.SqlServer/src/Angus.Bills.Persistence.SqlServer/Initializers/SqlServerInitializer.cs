@@ -6,8 +6,8 @@ namespace Angus.Bills.Persistence.SqlServer.Initializers
 {
     public abstract class SqlServerInitializer : ISqlServerInitializer
     {
-        private readonly IOptions<SqlServerOptions> _sqlServerOptions;
         private readonly ILogger<SqlServerInitializer> _logger;
+        private readonly IOptions<SqlServerOptions> _sqlServerOptions;
 
         public SqlServerInitializer(
             IOptions<SqlServerOptions> sqlServerOptions,
@@ -21,7 +21,6 @@ namespace Angus.Bills.Persistence.SqlServer.Initializers
         {
             await SeedData();
             _logger.LogInformation("SqlServerInitializer.");
-            return;
         }
 
         // Let child Initilizaer override this method

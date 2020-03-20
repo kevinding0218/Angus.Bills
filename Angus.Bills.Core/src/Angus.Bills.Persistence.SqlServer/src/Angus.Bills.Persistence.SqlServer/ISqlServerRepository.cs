@@ -14,14 +14,14 @@ namespace Angus.Bills.Persistence.SqlServer
         #region READ
 
         /// <summary>
-        /// overload for get object by primary key
+        ///     overload for get object by primary key
         /// </summary>
         /// <param name="id">id(primary key)</param>
         /// <returns></returns>
         Task<TEntity> GetSingleAsync(TIdentifiable id);
 
         /// <summary>
-        /// overload for get self-contained object
+        ///     overload for get self-contained object
         /// </summary>
         /// <param name="predicate">A function to test each element for a condition.</param>
         /// <param name="orderBy">A function to order elements.</param>
@@ -34,15 +34,22 @@ namespace Angus.Bills.Persistence.SqlServer
             bool disableTracking = true);
 
         /// <summary>
-        /// Gets the first or default entity based on a predicate, orderby delegate and include delegate. This method default no-tracking query.
-        /// https://github.com/Arch/UnitOfWork
+        ///     Gets the first or default entity based on a predicate, orderby delegate and include delegate. This method default
+        ///     no-tracking query.
+        ///     https://github.com/Arch/UnitOfWork
         /// </summary>
         /// <param name="selector">The selector for projection.</param>
         /// <param name="predicate">A function to test each element for a condition.</param>
         /// <param name="orderBy">A function to order elements.</param>
         /// <param name="include">A function to include navigation properties</param>
-        /// <param name="disableTracking"><c>True</c> to disable changing tracking; otherwise, <c>false</c>. Default to <c>true</c>.</param>
-        /// <returns>An <see cref="IPagedList{TEntity}"/> that contains elements that satisfy the condition specified by <paramref name="predicate"/>.</returns>
+        /// <param name="disableTracking">
+        ///     <c>True</c> to disable changing tracking; otherwise, <c>false</c>. Default to <c>true</c>
+        ///     .
+        /// </param>
+        /// <returns>
+        ///     An <see cref="IPagedList{TEntity}" /> that contains elements that satisfy the condition specified by
+        ///     <paramref name="predicate" />.
+        /// </returns>
         /// <remarks>This method default no-tracking query.</remarks>
         Task<TResult> GetSingleAsync<TResult>(
             Expression<Func<TEntity, TResult>> selector = null,
@@ -52,15 +59,19 @@ namespace Angus.Bills.Persistence.SqlServer
             bool disableTracking = true);
 
         /// <summary>
-        /// overload for get self-contained object
-        /// https://github.com/Arch/UnitOfWork
+        ///     overload for get self-contained object
+        ///     https://github.com/Arch/UnitOfWork
         /// </summary>
         /// <param name="predicate">A function to test each element for a condition.</param>
         /// <param name="orderBy">A function to order elements.</param>
         /// <param name="include">A function to include navigation properties</param>
-        /// <param name="disableTracking"><c>True</c> to disable changing tracking; otherwise, <c>false</c>. Default to <c>true</c>.</param>
-        /// <returns>An <see cref="IPagedList{TEntity}"/> that contains elements that satisfy the condition specified by "predicate"
-        /// <remarks>This method default no-tracking query.</remarks>
+        /// <param name="disableTracking">
+        ///     <c>True</c> to disable changing tracking; otherwise, <c>false</c>. Default to <c>true</c>
+        ///     .
+        /// </param>
+        /// <returns>
+        ///     An <see cref="IPagedList{TEntity}" /> that contains elements that satisfy the condition specified by "predicate"
+        ///     <remarks>This method default no-tracking query.</remarks>
         Task<IEnumerable<TEntity>> GetListAsync(
             Expression<Func<TEntity, bool>> predicate = null,
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
@@ -68,16 +79,21 @@ namespace Angus.Bills.Persistence.SqlServer
             bool disableTracking = true);
 
         /// <summary>
-        /// Gets the list of entity based on a predicate, orderby delegate and include delegate. This method default no-tracking query.
-        /// https://github.com/Arch/UnitOfWork
+        ///     Gets the list of entity based on a predicate, orderby delegate and include delegate. This method default
+        ///     no-tracking query.
+        ///     https://github.com/Arch/UnitOfWork
         /// </summary>
         /// <param name="selector">The selector for projection.</param>
         /// <param name="predicate">A function to test each element for a condition.</param>
         /// <param name="orderBy">A function to order elements.</param>
         /// <param name="include">A function to include navigation properties</param>
-        /// <param name="disableTracking"><c>True</c> to disable changing tracking; otherwise, <c>false</c>. Default to <c>true</c>.</param>
-        /// <returns>An <see cref="IPagedList{TEntity}"/> that contains elements that satisfy the condition specified by "predicate"
-        /// <remarks>This method default no-tracking query.</remarks>
+        /// <param name="disableTracking">
+        ///     <c>True</c> to disable changing tracking; otherwise, <c>false</c>. Default to <c>true</c>
+        ///     .
+        /// </param>
+        /// <returns>
+        ///     An <see cref="IPagedList{TEntity}" /> that contains elements that satisfy the condition specified by "predicate"
+        ///     <remarks>This method default no-tracking query.</remarks>
         Task<IEnumerable<TResult>> GetListAsync<TResult>(
             Expression<Func<TEntity, TResult>> selector = null,
             Expression<Func<TEntity, bool>> predicate = null,

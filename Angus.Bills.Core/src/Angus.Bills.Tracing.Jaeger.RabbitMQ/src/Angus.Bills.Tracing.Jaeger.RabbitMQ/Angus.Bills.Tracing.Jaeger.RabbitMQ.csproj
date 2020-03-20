@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Angus.Bills.Tracing.Jaeger.RabbitMQ</Description>
+    <Authors>DevDing.io</Authors>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <LangVersion>Latest</LangVersion>
+    <AssemblyName>Angus.Bills.Tracing.Jaeger.RabbitMQ</AssemblyName>
+    <Title>Angus.Bills.Tracing.Jaeger.RabbitMQ</Title>
+    <PackageId>Angus.Bills.Tracing.Jaeger.RabbitMQ</PackageId>
+    <PackageTags>Angus.Bills.Tracing.Jaeger.RabbitMQ</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Angus.Bills.MessageBrokers.RabbitMQ\src\Angus.Bills.MessageBrokers.RabbitMQ\Angus.Bills.MessageBrokers.RabbitMQ.csproj" />
+    <ProjectReference Include="..\..\..\Angus.Bills.Tracing.Jaeger\src\Angus.Bills.Tracing.Jaeger\Angus.Bills.Tracing.Jaeger.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -15,11 +15,15 @@ namespace DefaultNamespace
          */
         public static async Task<PagedResult<T>> PaginateAsync<T>(this IOrderedQueryable<T> collection,
             PagedQueryBase query)
-            => await collection.PaginateAsync(query.Page, query.Results);
+        {
+            return await collection.PaginateAsync(query.Page, query.Results);
+        }
 
         public static async Task<PagedResult<T>> PaginateAsync<T>(this IOrderedQueryable<T> collection,
             int page = 1, int resultsPerPage = 10)
-            => await collection.AsQueryable().PaginateAsync(page, resultsPerPage);
+        {
+            return await collection.AsQueryable().PaginateAsync(page, resultsPerPage);
+        }
 
         #endregion
 
@@ -30,7 +34,9 @@ namespace DefaultNamespace
         * A separate interface is needed because the next operation might be another sort, which needs to be treated differently to the IOrderedQueryable<T>
          */
         public static async Task<PagedResult<T>> PaginateAsync<T>(this IQueryable<T> collection, PagedQueryBase query)
-            => await collection.PaginateAsync(query.Page, query.Results);
+        {
+            return await collection.PaginateAsync(query.Page, query.Results);
+        }
 
         public static async Task<PagedResult<T>> PaginateAsync<T>(this IQueryable<T> collection,
             int page = 1, int resultsPerPage = 10)
@@ -49,20 +55,16 @@ namespace DefaultNamespace
         }
 
         public static IQueryable<T> Limit<T>(this IQueryable<T> collection, PagedQueryBase query)
-            => collection.Limit(query.Page, query.Results);
+        {
+            return collection.Limit(query.Page, query.Results);
+        }
 
         public static IQueryable<T> Limit<T>(this IQueryable<T> collection,
             int page = 1, int resultsPerPage = 10)
         {
-            if (page <= 0)
-            {
-                page = 1;
-            }
+            if (page <= 0) page = 1;
 
-            if (resultsPerPage <= 0)
-            {
-                resultsPerPage = 10;
-            }
+            if (resultsPerPage <= 0) resultsPerPage = 10;
 
             var skip = (page - 1) * resultsPerPage;
             var data = collection.Skip(skip)

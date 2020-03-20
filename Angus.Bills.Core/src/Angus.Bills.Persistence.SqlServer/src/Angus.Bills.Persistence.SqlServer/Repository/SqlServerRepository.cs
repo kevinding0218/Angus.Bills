@@ -14,27 +14,40 @@ namespace Angus.Bills.Persistence.SqlServer.Repository
     internal class SqlServerRepository<TEntity, TIdentifiable> : ISqlServerRepository<TEntity, TIdentifiable>
         where TEntity : class, IIdentifiable<TIdentifiable>, new()
     {
-        private readonly DbContext _dbContext;
         private readonly DbSet<TEntity> _collection;
+        private readonly DbContext _dbContext;
 
         public SqlServerRepository(DbContext dbContext)
         {
-            this._dbContext = dbContext;
-            this._collection = dbContext.Set<TEntity>();
+            _dbContext = dbContext;
+            _collection = dbContext.Set<TEntity>();
         }
+
+        #region Unit Of Work
+
+        public async Task<int> CommitChangesAsync()
+        {
+            return await _dbContext.SaveChangesAsync();
+        }
+
+        #endregion
 
         #region CRUD
 
         public async Task<TEntity> GetSingleAsync(TIdentifiable id)
-            => await GetSingleAsync(selector: (entity) => entity, predicate: e => e.Id.Equals(id));
+        {
+            return await GetSingleAsync(entity => entity, e => e.Id.Equals(id));
+        }
 
         public async Task<TEntity> GetSingleAsync(
             Expression<Func<TEntity, bool>> predicate = null,
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
             Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>> include = null,
             bool disableTracking = true)
-            => await GetSingleAsync(selector: (entity) => entity, predicate: predicate, orderBy: orderBy,
-                include: include, disableTracking: disableTracking);
+        {
+            return await GetSingleAsync(entity => entity, predicate, orderBy,
+                include, disableTracking);
+        }
 
         public async Task<TResult> GetSingleAsync<TResult>(
             Expression<Func<TEntity, TResult>> selector = null,
@@ -43,9 +56,9 @@ namespace Angus.Bills.Persistence.SqlServer.Repository
             Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>> include = null,
             bool disableTracking = true)
         {
-            IQueryable<TEntity> query = this._collection;
+            IQueryable<TEntity> query = _collection;
 
-            if (selector == null) selector = entity => entity is TResult ? (TResult) (object) entity : default(TResult);
+            if (selector == null) selector = entity => entity is TResult ? (TResult) (object) entity : default;
 
             if (disableTracking) query = query.AsNoTracking();
 
@@ -63,8 +76,10 @@ namespace Angus.Bills.Persistence.SqlServer.Repository
             Func<IQueryable<TEntity>, IOrderedQueryable<TEntity>> orderBy = null,
             Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>> include = null,
             bool disableTracking = true)
-            => await GetListAsync(selector: (entity) => entity, predicate: predicate, orderBy: orderBy,
-                include: include, disableTracking: disableTracking);
+        {
+            return await GetListAsync(entity => entity, predicate, orderBy,
+                include, disableTracking);
+        }
 
         public async Task<IEnumerable<TResult>> GetListAsync<TResult>(
             Expression<Func<TEntity, TResult>> selector = null,
@@ -73,9 +88,9 @@ namespace Angus.Bills.Persistence.SqlServer.Repository
             Func<IQueryable<TEntity>, IIncludableQueryable<TEntity, object>> include = null,
             bool disableTracking = true)
         {
-            IQueryable<TEntity> query = this._collection;
+            IQueryable<TEntity> query = _collection;
 
-            if (selector == null) selector = entity => entity is TResult ? (TResult) (object) entity : default(TResult);
+            if (selector == null) selector = entity => entity is TResult ? (TResult) (object) entity : default;
 
             if (disableTracking) query = query.AsNoTracking();
 
@@ -93,77 +108,76 @@ namespace Angus.Bills.Persistence.SqlServer.Repository
         /// Update and Remove are the same as Add in as much as they only affect the internal tracking until you save the changes you've made.
         public void Add(TEntity entity)
         {
-            this._collection.Add(entity);
+            _collection.Add(entity);
         }
 
         public void AddRange(IEnumerable<TEntity> entities)
         {
-            this._collection.AddRange(entities);
+            _collection.AddRange(entities);
         }
 
         public void Update(TEntity entity)
         {
-            this._collection.Update(entity);
+            _collection.Update(entity);
         }
 
         public void UpdateRange(IEnumerable<TEntity> entities)
         {
-            this._collection.UpdateRange(entities);
+            _collection.UpdateRange(entities);
         }
 
         ///If you dont want to query for it just create an entity through constructor, and then delete it.
         public void Delete(TIdentifiable id)
         {
             // => this._collection.Remove(this._collection.SingleOrDefault(e => e.Id == id));
-            var instance = Activator.CreateInstance(typeof(TEntity), new object[] {id}) as TEntity;
-            this._collection.Attach(instance);
-            this._collection.Remove(instance);
+            var instance = Activator.CreateInstance(typeof(TEntity), id) as TEntity;
+            _collection.Attach(instance);
+            _collection.Remove(instance);
         }
 
-        public void Delete(TEntity entity) => this._collection.Remove(entity);
+        public void Delete(TEntity entity)
+        {
+            _collection.Remove(entity);
+        }
 
         /// <summary>
-        /// Deletes the specified entities.
+        ///     Deletes the specified entities.
         /// </summary>
         /// <param name="entities">The entities.</param>
-        public void DeleteRange(IEnumerable<TEntity> entities) => this._collection.RemoveRange(entities);
-
-        #endregion
-
-        #region Unit Of Work
-
-        public async Task<int> CommitChangesAsync()
+        public void DeleteRange(IEnumerable<TEntity> entities)
         {
-            return await this._dbContext.SaveChangesAsync();
+            _collection.RemoveRange(entities);
         }
 
         #endregion
 
         #region HELPER
 
-        public async Task<bool> IsExistedAsync(Expression<Func<TEntity, bool>> predicate) =>
-            await this._collection.Where(predicate).AnyAsync();
+        public async Task<bool> IsExistedAsync(Expression<Func<TEntity, bool>> predicate)
+        {
+            return await _collection.Where(predicate).AnyAsync();
+        }
 
         public async Task<PagedResult<TEntity>> BrowseAsync<TQuery>(Expression<Func<TEntity, bool>> predicate,
             TQuery query)
-            where TQuery : PagedQueryBase => await this._collection.AsQueryable().Where(predicate).PaginateAsync(query);
+            where TQuery : PagedQueryBase
+        {
+            return await _collection.AsQueryable().Where(predicate).PaginateAsync(query);
+        }
 
         #endregion
 
         #region Dispose
 
-        private bool _disposed = false;
+        private bool _disposed;
 
         protected virtual void Dispose(bool disposing)
         {
-            if (!this._disposed)
+            if (!_disposed)
             {
-                if (disposing)
-                {
-                    _dbContext?.Dispose();
-                }
+                if (disposing) _dbContext?.Dispose();
 
-                this._disposed = true;
+                _disposed = true;
             }
         }
 
