@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Drex.HTTP.HttpClient</Description>
+    <Authors>DevDing.io</Authors>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <LangVersion>Latest</LangVersion>
+    <AssemblyName>Drex.HTTP.HttpClient</AssemblyName>
+    <Title>Drex.HTTP.HttpClient</Title>
+    <PackageId>Drex.HTTP.HttpClient</PackageId>
+    <PackageTags>Drex.HTTP.HttpClient</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Http" Version="3.1.1" />
+    <PackageReference Include="Open.Serialization.Json.Newtonsoft" Version="1.4.0" />
+    <PackageReference Include="Polly" Version="7.2.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Drex.Initializers\src\Drex.Initializers\Drex.Initializers.csproj" />
+  </ItemGroup>
+</Project>

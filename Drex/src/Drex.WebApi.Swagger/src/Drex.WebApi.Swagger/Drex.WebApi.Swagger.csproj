@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Drex.WebApi.Swagger</Description>
+    <Authors>DevDing.io</Authors>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <LangVersion>Latest</LangVersion>
+    <AssemblyName>Drex.WebApi.Swagger</AssemblyName>
+    <Title>Drex.WebApi.Swagger</Title>
+    <PackageId>Drex.WebApi.Swagger</PackageId>
+    <PackageTags>Drex.WebApi.Swagger</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Drex.Docs.Swagger\src\Drex.Docs.Swagger\Drex.Docs.Swagger.csproj" />
+    <ProjectReference Include="..\..\..\Drex.WebApi\src\Drex.WebApi\Drex.WebApi.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Drex.MessageBrokers.CQRS</Description>
+    <Authors>DevMentors.io</Authors>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <LangVersion>Latest</LangVersion>
+    <AssemblyName>Drex.MessageBrokers.CQRS</AssemblyName>
+    <Title>Drex.MessageBrokers.CQRS</Title>
+    <PackageId>Drex.MessageBrokers.CQRS</PackageId>
+    <PackageTags>Drex.MessageBrokers.CQRS</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Drex.MessageBrokers\src\Drex.MessageBrokers\Drex.MessageBrokers.csproj" />
+    <ProjectReference Include="..\..\..\Drex.CQRS.Commands\src\Drex.CQRS.Commands\Drex.CQRS.Commands.csproj" />
+    <ProjectReference Include="..\..\..\Drex.CQRS.Events\src\Drex.CQRS.Events\Drex.CQRS.Events.csproj" />
+  </ItemGroup>
+  
+</Project>

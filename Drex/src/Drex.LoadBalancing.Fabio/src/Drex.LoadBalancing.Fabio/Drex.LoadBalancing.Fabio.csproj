@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Drex.LoadBalancing.Fabio</Description>
+    <Authors>DevDing.io</Authors>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <LangVersion>Latest</LangVersion>
+    <AssemblyName>Drex.LoadBalancing.Fabio</AssemblyName>
+    <Title>Drex.LoadBalancing.Fabio</Title>
+    <PackageId>Drex.LoadBalancing.Fabio</PackageId>
+    <PackageTags>Drex.LoadBalancing.Fabio</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Drex.Discovery.Consul\src\Drex.Discovery.Consul\Drex.Discovery.Consul.csproj" />
+    <ProjectReference Include="..\..\..\Drex.HTTP.HttpClient\src\Drex.HTTP.HttpClient\Drex.HTTP.HttpClient.csproj" />
+  </ItemGroup>
+
+</Project>

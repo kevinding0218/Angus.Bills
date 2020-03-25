@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Drex.Discovery.Consul\src\Drex.Discovery.Consul\Drex.Discovery.Consul.csproj" />
+    <ProjectReference Include="..\..\..\Drex.HTTP.HttpClient\src\Drex.HTTP.HttpClient\Drex.HTTP.HttpClient.csproj" />
+    <ProjectReference Include="..\..\..\Drex.Initializers\src\Drex.Initializers\Drex.Initializers.csproj" />
+    <ProjectReference Include="..\..\..\Drex.LoadBalancing.Fabio\src\Drex.LoadBalancing.Fabio\Drex.LoadBalancing.Fabio.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Http" Version="3.1.1" />
+    <PackageReference Include="RestEase" Version="1.4.10" />
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
+  </ItemGroup>
+</Project>

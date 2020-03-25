@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Drex.Tracing.Jaeger.RabbitMQ</Description>
+    <Authors>DevDing.io</Authors>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <LangVersion>Latest</LangVersion>
+    <AssemblyName>Drex.Tracing.Jaeger.RabbitMQ</AssemblyName>
+    <Title>Drex.Tracing.Jaeger.RabbitMQ</Title>
+    <PackageId>Drex.Tracing.Jaeger.RabbitMQ</PackageId>
+    <PackageTags>Drex.Tracing.Jaeger.RabbitMQ</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Drex.MessageBrokers.RabbitMQ\src\Drex.MessageBrokers.RabbitMQ\Drex.MessageBrokers.RabbitMQ.csproj" />
+    <ProjectReference Include="..\..\..\Drex.Tracing.Jaeger\src\Drex.Tracing.Jaeger\Drex.Tracing.Jaeger.csproj" />
+  </ItemGroup>
+
+</Project>

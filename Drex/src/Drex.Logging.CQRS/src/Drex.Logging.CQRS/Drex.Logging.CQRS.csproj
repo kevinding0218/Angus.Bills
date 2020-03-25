@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Drex.Logging.CQRS</Description>
+    <Authors>DevDing.io</Authors>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <LangVersion>Latest</LangVersion>
+    <AssemblyName>Drex.Logging.CQRS</AssemblyName>
+    <Title>Drex.Logging.CQRS</Title>
+    <PackageId>Drex.Logging.CQRS</PackageId>
+    <PackageTags>Drex.Logging.CQRS</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Drex.CQRS.Commands\src\Drex.CQRS.Commands\Drex.CQRS.Commands.csproj" />
+    <ProjectReference Include="..\..\..\Drex.CQRS.Events\src\Drex.CQRS.Events\Drex.CQRS.Events.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="SmartFormat.NET" Version="2.5.0" />
+  </ItemGroup>
+
+</Project>

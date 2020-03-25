@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Drex.CQRS.Events</Description>
+    <Authors>DevDing.io</Authors>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <LangVersion>Latest</LangVersion>
+    <AssemblyName>Drex.CQRS.Events</AssemblyName>
+    <Title>Drex.CQRS.Events</Title>
+    <PackageId>Drex.CQRS.Events</PackageId>
+    <PackageTags>Drex.CQRS.Events</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Scrutor.AspNetCore" Version="1.0.0" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Drex.Initializers\src\Drex.Initializers\Drex.Initializers.csproj" />
+    <ProjectReference Include="..\..\..\Drex.Types.Queries\src\Drex.Types.Queries\Drex.Types.Queries.csproj" />
+  </ItemGroup>
+
+</Project>

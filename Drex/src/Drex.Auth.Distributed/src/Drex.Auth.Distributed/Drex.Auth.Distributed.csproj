@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Drex.Auth.Distributed</Description>
+    <Authors>DevDing.io</Authors>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <LangVersion>Latest</LangVersion>
+    <AssemblyName>Drex.Auth.Distributed</AssemblyName>
+    <Title>Drex.Auth.Distributed</Title>
+    <PackageId>Drex.Auth.Distributed</PackageId>
+    <PackageTags>Drex.Auth.Distributed</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Drex.Auth\src\Drex.Auth\Drex.Auth.csproj" />
+    <ProjectReference Include="..\..\..\Drex.Initializers\src\Drex.Initializers\Drex.Initializers.csproj" />
+  </ItemGroup>
+
+</Project>

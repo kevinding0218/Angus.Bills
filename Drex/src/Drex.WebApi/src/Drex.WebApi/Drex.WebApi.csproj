@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Drex.WebApi</Description>
+    <Authors>DevDing.io</Authors>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <LangVersion>Latest</LangVersion>
+    <AssemblyName>Drex.WebApi</AssemblyName>
+    <Title>Drex.WebApi</Title>
+    <PackageId>Drex.WebApi</PackageId>
+    <PackageTags>Drex.WebApi</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Open.Serialization.Json.Newtonsoft" Version="1.4.0" />
+    <PackageReference Include="Open.Serialization.Json.System" Version="1.4.0" />
+    <PackageReference Include="Open.Serialization.Json.Utf8Json" Version="1.4.1" />
+    <PackageReference Include="Scrutor.AspNetCore" Version="1.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Drex.Initializers\src\Drex.Initializers\Drex.Initializers.csproj" />
+  </ItemGroup>
+</Project>

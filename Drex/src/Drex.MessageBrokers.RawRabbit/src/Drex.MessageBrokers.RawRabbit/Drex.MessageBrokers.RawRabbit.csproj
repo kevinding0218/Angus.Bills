@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Drex.MessageBrokers.RawRabbit</Description>
+    <Authors>DevDing.io</Authors>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <LangVersion>Latest</LangVersion>
+    <AssemblyName>Drex.MessageBrokers.RawRabbit</AssemblyName>
+    <Title>Drex.MessageBrokers.RawRabbit</Title>
+    <PackageId>Drex.MessageBrokers.RawRabbit</PackageId>
+    <PackageTags>Drex.MessageBrokers.RawRabbit</PackageTags>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Drex.Initializers\src\Drex.Initializers\Drex.Initializers.csproj" />
+    <ProjectReference Include="..\..\..\Drex.MessageBrokers\src\Drex.MessageBrokers\Drex.MessageBrokers.csproj" />
+    <ProjectReference Include="..\..\..\Drex.Persistence.Redis\src\Drex.Persistence.Redis\Drex.Persistence.Redis.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Caching.Memory" Version="3.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Logging" Version="3.1.1" />
+    <PackageReference Include="RawRabbit" Version="2.0.0-rc5" />
+    <PackageReference Include="RawRabbit.DependencyInjection.ServiceCollection" Version="2.0.0-rc5" />
+    <PackageReference Include="RawRabbit.Enrichers.Attributes" Version="2.0.0-rc5" />
+    <PackageReference Include="Polly" Version="7.2.0" />
+    <PackageReference Include="RawRabbit.Enrichers.Polly" Version="2.0.0-rc5" />
+    <PackageReference Include="RawRabbit.Enrichers.MessageContext" Version="2.0.0-rc5" />
+    <PackageReference Include="RawRabbit.Enrichers.MessageContext.Subscribe" Version="2.0.0-rc5" />
+    <PackageReference Include="RawRabbit.Enrichers.RetryLater" Version="2.0.0-rc5" />
+    <PackageReference Include="RawRabbit.Operations.Publish" Version="2.0.0-rc5" />
+    <PackageReference Include="RawRabbit.Operations.Subscribe" Version="2.0.0-rc5" />
+  </ItemGroup>
+  
+</Project>
