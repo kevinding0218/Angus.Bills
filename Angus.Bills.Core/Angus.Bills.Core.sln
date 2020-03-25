@@ -81,7 +81,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Angus.Bills.Persistence.Sql
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{BE698E73-8789-4F8C-8ADA-77DAF068ED08}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Angus.Bills.Persistence.SqlServer", "src\Angus.Bills.Persistence.SqlServer\src\Angus.Bills.Persistence.SqlServer\Angus.Bills.Persistence.SqlServer.csproj", "{1F62D19F-956F-4F12-8490-20B862E0B0AC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrexFac.Persistence.SqlServer", "src\Angus.Bills.Persistence.SqlServer\src\DrexFac.Persistence.SqlServer\DrexFac.Persistence.SqlServer.csproj", "{1F62D19F-956F-4F12-8490-20B862E0B0AC}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Angus.Bills.Types.Queries", "Angus.Bills.Types.Queries", "{4AD9BFF4-87A6-4B35-9A41-F78ED87F3F58}"
 EndProject

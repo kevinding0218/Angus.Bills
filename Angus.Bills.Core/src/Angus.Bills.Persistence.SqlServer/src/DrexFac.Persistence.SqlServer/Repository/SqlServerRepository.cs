@@ -4,8 +4,8 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Angus.Bills.Initializers;
+using Angus.Bills.Persistence.SqlServer.Pagination;
 using Angus.Bills.Types.Queries;
-using DefaultNamespace;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Query;
 

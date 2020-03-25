@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Angus.Bills.Types.Queries;
 using Microsoft.EntityFrameworkCore;
 
-namespace DefaultNamespace
+namespace Angus.Bills.Persistence.SqlServer.Pagination
 {
     public static class SqlServerPagination
     {
