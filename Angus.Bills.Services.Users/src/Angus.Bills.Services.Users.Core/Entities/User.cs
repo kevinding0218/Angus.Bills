@@ -24,7 +24,7 @@ namespace Angus.Bills.Services.Users.Core.Entities
         }
 
         public User(Guid id, string email, DateTime createdAt) : this(id, email, createdAt, string.Empty,
-            string.Empty, false, UserState.Incomplete, Enumerable.Empty<Guid>())
+            string.Empty, false, UserLevel.Newbee, UserState.Incomplete, Enumerable.Empty<Guid>())
         {
         }
 

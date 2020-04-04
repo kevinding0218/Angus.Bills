@@ -3,12 +3,12 @@ echo Executing after success scripts on branch $TRAVIS_BRANCH
 echo Triggering Nuget package build
 
 cd src/Drex.MessageBrokers.RabbitMQ/src/Drex.MessageBrokers.RabbitMQ
-dotnet pack -c release /p:PackageVersion=0.4.$TRAVIS_BUILD_NUMBER --no-restore -o .
+dotnet pack -c release /p:PackageVersion=0.4.0 --no-restore -o ./../../../../release
 
-echo Uploading Drex.MessageBrokers.RabbitMQ package to Nuget using branch $TRAVIS_BRANCH
+#echo Uploading Drex.MessageBrokers.RabbitMQ package to Nuget using branch $TRAVIS_BRANCH
 
-case "$TRAVIS_BRANCH" in
-  "master")
-    dotnet nuget push *.nupkg -k $NUGET_API_KEY -s https://api.nuget.org/v3/index.json
-    ;;
-esac
+# case "$TRAVIS_BRANCH" in
+#   "master")
+#     dotnet nuget push *.nupkg -k oy2oufdkr64me6dbxgeabvkk3kl6vpwunfzjtxpoxjuey4 -s https://api.nuget.org/v3/index.json
+#     ;;
+# esac
